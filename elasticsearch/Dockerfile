@@ -23,7 +23,7 @@ WORKDIR /usr/share/elasticsearch
 
 RUN curl -sL https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-7.6.2-no-jdk-linux-x86_64.tar.gz | tar --strip-components=1 -zxf -
 RUN grep ES_DISTRIBUTION_TYPE=tar /usr/share/elasticsearch/bin/elasticsearch-env     && sed -i -e 's/ES_DISTRIBUTION_TYPE=tar/ES_DISTRIBUTION_TYPE=docker/' /usr/share/elasticsearch/bin/elasticsearch-env
-RUN curl -sL http://download.bell-sw.com/java/13.0.2+9/bellsoft-jdk13.0.2+9-linux-aarch64.tar.gz | tar -C /opt -zxf -
+RUN curl -sL https://download.bell-sw.com/java/13.0.2+9/bellsoft-jdk13.0.2+9-linux-arm32-vfp-hflt.tar.gz | tar -C /opt -zxf -
 RUN mkdir -p config data logs
 RUN chmod 0775 config data logs
 COPY config/elasticsearch.yml config/log4j2.properties config/

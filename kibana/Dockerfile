@@ -17,8 +17,7 @@ WORKDIR /usr/share/kibana
 RUN curl -sL https://artifacts.elastic.co/downloads/kibana/kibana-oss-7.6.2-linux-x86_64.tar.gz | tar --strip-components=1 -zxf -
 # replace amd64 node with arm64
 RUN rm -rf /usr/share/kibana/node/* && \
-    curl -sL https://nodejs.org/dist/v10.19.0/node-v10.19.0-linux-arm64.tar.gz | tar -C /usr/share/kibana/node/ --strip-components=1 -xzf -
-
+    curl -sL https://nodejs.org/dist/v10.19.0/node-v10.19.0-linux-armv7l.tar.gz | tar -C /usr/share/kibana/node/ --strip-components=1 -xzf -
 # compile dumb-init from sources
 RUN mkdir -p /opt/dumb-init
 RUN curl -sL https://github.com/Yelp/dumb-init/archive/v1.2.2.tar.gz | tar -C /opt/dumb-init --strip-components=1 -zxf -
